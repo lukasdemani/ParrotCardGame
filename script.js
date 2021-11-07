@@ -1,21 +1,24 @@
 const cardQuant = parseInt(prompt("How many cards do you want?"));
 
-let divCards = document.querySelector(".cards");
 const imgCard = ["<img src='img/explodyparrot.gif' alt=''>", 
-                "<img src='img/fiestaparrot.gif' alt=''>",
-                "<img src='img/metalparrot.gif' alt=''>",
-                "<img src='img/revertitparrot.gif' alt=''>",
-                "<img src='img/tripletsparrot.gif' alt=''>",
-                "<img src='img/unicornparrot.gif' alt=''>",
-                "<img src='img/front.png' alt=''>"];
+"<img src='img/fiestaparrot.gif' alt=''>",
+"<img src='img/metalparrot.gif' alt=''>",
+"<img src='img/revertitparrot.gif' alt=''>",
+"<img src='img/tripletsparrot.gif' alt=''>",
+"<img src='img/unicornparrot.gif' alt=''>",
+"<img src='img/anotherparrot.gif' alt=''>"];
 
 const imgSelection = [];
+
+let divCards = document.querySelector(".cards");
+let divCronometer = document.querySelector(".cronometer");
 
 let flippedCard = 0;
 let firstCard = '';
 let secondCard = '';
 let moves = 0;
 let points = 0;
+let cronometer = 0;
 
 for (let i=0; i<(cardQuant/2); i++){
     imgSelection.push(imgCard[i]);
@@ -40,6 +43,13 @@ for (let i = 0; i < cardQuant; i++) {
         </div>
     </div>`;
 };
+
+setInterval(time, 1000);
+
+function time() {
+    cronometer++;
+    divCronometer.innerHTML = cronometer;
+}
 
 function resetCards(){
     firstCard.classList.toggle("flip");
@@ -77,5 +87,5 @@ function movesCount(){
 };
 
 function alertWin() {
-    alert(`You win in ${moves} turns!`);
+    alert(`You won in ${moves} turns and spent ${cronometer} seconds!`);
 };

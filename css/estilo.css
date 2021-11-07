@@ -9,6 +9,14 @@ header {
     text-align: center;
 
     margin: 40px auto;
+
+    position: relative;
+}
+
+.cronometer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
 }
 
 main {
@@ -17,6 +25,7 @@ main {
 }
 
 .cards {
+  width: 1500px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
